@@ -11,7 +11,7 @@ socket.bind('tcp://*:7777')
 def index():
     return template('index')
 
-@route('/color/<param:int>')
+@route('/color/param')
 def color(param):
     socket.send(param)
 
