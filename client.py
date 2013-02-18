@@ -18,7 +18,7 @@ def main():
     wiringpi.softPwmCreate(BLUE_PIN, 0, 255)
 
     while True:
-        rgb = socket.recv()
+        rgb = int(socket.recv())
         red = (rgb >> 16) & 0xFF
         green = (rgb >> 8) & 0xFF
         blue = rgb & 0xFF
