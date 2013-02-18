@@ -11,10 +11,9 @@ socket.bind('tcp://*:7777')
 def index():
     return template('index')
 
-@route('/color/:param')
+@route('/color/<param:int>')
 def color(param):
     socket.send(param)
-    return ''
 
 @route('/static/:filename#.*#')
 def server_static(filename):

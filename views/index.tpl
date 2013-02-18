@@ -9,14 +9,7 @@
     <script src="/static/js/colorwheel.js"></script>
     <script src="/static/js/jquery.min.js"></script>
     <script>
-    Number.prototype.padLeft = function(n, str){
-      return Array(n - String(this).length + 1).join(str || '0') + this;
-    }
-
     Raphael(function () {
-      var lastUpdate = 0
-      var MIN_INTERVAL = 10
-
       var out = document.getElementById("output")
       var vr = document.getElementById("vr")
       var vg = document.getElementById("vg")
@@ -63,18 +56,9 @@
           vv.innerHTML = Math.round(color.v * 100) + "%"
           vl.innerHTML = Math.round(color.l * 100) + "%"
 
-          var now = new Date().getTime()
-          if (now >= (lastUpdate + MIN_INTERVAL)) {
-            lastUpdate = now
-            param = []
-            param.push(color.r.padLeft(3))
-            param.push(color.g.padLeft(3))
-            param.push(color.b.padLeft(3))
-
-            $.ajax({
-              url: '/color/' + param.join('')
-            })
-          }
+          $.ajax({
+            url : '/color/' + (((color.r & 0x0ff) << 16) | ((color.g & 0x0ff) << 8) | (color.b & 0x0ff))
+          })
         }
       }
 
