@@ -1,2 +1,1 @@
-
-RGB LED + ZeroMQ + bottle + python + wiringPi + RaphaelJS = Awesomeness
+[More info](http://www.nullonerror.org/entry/0x0004)
