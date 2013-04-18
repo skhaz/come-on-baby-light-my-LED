@@ -65,7 +65,7 @@
               vv.innerHTML = Math.round(color.v * 100) + "%"
               vl.innerHTML = Math.round(color.l * 100) + "%"
 
-              s.emit('color', (color.r & 0x0ff) << 16 | (color.g & 0x0ff) << 8 | color.b & 0x0ff);
+              s.emit('color', (color.r & 0x0ff) << 16 | (color.g & 0x0ff) << 8 | color.b & 0x0ff)
             }
           }
 
